@@ -312,133 +312,130 @@ main, aside {
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    // --- Cache DOM Elements ---
-    const root = document.documentElement;
-    const header = document.getElementById('header');
-    const profile = document.getElementById('profile');
-    const mainContent = document.querySelector('main');
-    const sections = document.querySelectorAll('aside[id], main section[id]');
-    const navLinks = document.querySelectorAll('header nav a.nav-link');
-    const sidebarNavButtons = document.querySelectorAll('.sidebar-nav-button');
-    const sidebarPages = document.querySelectorAll('.sidebar-page');
-    let isTicking = false;
-
-    // --- Utility: Throttle ---
-    function throttle(func, limit) {
-        let inThrottle;
-        return function() {
-            const args = arguments;
-            const context = this;
-            if (!inThrottle) {
-                func.apply(context, args);
-                inThrottle = true;
-                setTimeout(() => inThrottle = false, limit);
-            }
-        };
+    // --- SCROLL RESTORATION FIX ---
+    // 1. Tell the browser to let us handle scroll restoration manually.
+    if (history.scrollRestoration) {
+        history.scrollRestoration = 'manual';
     }
 
-    // --- Staggered Scroll Animations (Intersection Observer) ---
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const elements = entry.target.querySelectorAll('.fade-in-section');
-                elements.forEach((el, index) => {
-                    el.style.transitionDelay = `${index * 150}ms`;
-                    el.classList.add('is-visible');
-                });
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('section, aside').forEach(el => observer.observe(el));
-
-    // --- Smooth Anchor Scrolling ---
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const href = this.getAttribute('href');
-            if (!href || href === '#') return;
-            const target = document.querySelector(href);
-            if (!target) return;
-            e.preventDefault();
-            
-            const headerHeight = header ? header.offsetHeight : 0;
-            const y = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 8;
-            window.scrollTo({ top: y, behavior: 'smooth' });
-        });
+    // 2. Save the scroll position to sessionStorage right before the page unloads.
+    window.addEventListener('beforeunload', () => {
+        sessionStorage.setItem('scrollPosition', window.scrollY);
     });
 
-    // --- Sidebar Page Navigation ---
-    sidebarNavButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const targetPageId = button.dataset.page;
-            sidebarPages.forEach(page => page.classList.toggle('active', page.id === targetPageId));
-            sidebarNavButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.page === targetPageId));
-        });
+    // 3. On page load, retrieve the position and scroll to it.
+    //    We use the 'load' event to ensure all content (like images) is ready,
+    //    which prevents the page from jumping after the scroll is restored.
+    window.addEventListener('load', () => {
+        const scrollPosition = sessionStorage.getItem('scrollPosition');
+        if (scrollPosition) {
+            window.scrollTo(0, parseInt(scrollPosition, 10));
+        }
     });
 
-    // --- Spotlight Cursor Effect (kept; already lightweight with rAF) ---
-    mainContent.addEventListener('mousemove', e => {
-        if (!isTicking) {
-            window.requestAnimationFrame(() => {
-                const { clientX, clientY } = e;
-                const { left, top } = mainContent.getBoundingClientRect();
-                mainContent.style.setProperty('--x', `${clientX - left}px`);
-                mainContent.style.setProperty('--y', `${clientY - top}px`);
-                isTicking = false;
+    // --- ORIGINAL PAGE SCRIPT ---
+    document.addEventListener('DOMContentLoaded', function () {
+        // --- Cache DOM Elements ---
+        const root = document.documentElement;
+        const header = document.getElementById('header');
+        const profile = document.getElementById('profile');
+        const mainContent = document.querySelector('main');
+        const sections = document.querySelectorAll('aside[id], main section[id]');
+        const navLinks = document.querySelectorAll('header nav a.nav-link');
+        const sidebarNavButtons = document.querySelectorAll('.sidebar-nav-button');
+        const sidebarPages = document.querySelectorAll('.sidebar-page');
+        let isTicking = false;
+
+        // --- Utility: Throttle ---
+        function throttle(func, limit) {
+            let inThrottle;
+            return function() {
+                const args = arguments;
+                const context = this;
+                if (!inThrottle) {
+                    func.apply(context, args);
+                    inThrottle = true;
+                    setTimeout(() => inThrottle = false, limit);
+                }
+            };
+        }
+
+        // --- Staggered Scroll Animations (Intersection Observer) ---
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const elements = entry.target.querySelectorAll('.fade-in-section');
+                    elements.forEach((el, index) => {
+                        el.style.transitionDelay = `${index * 150}ms`;
+                        el.classList.add('is-visible');
+                    });
+                    observer.unobserve(entry.target);
+                }
             });
-            isTicking = true;
-        }
-    });
+        }, { threshold: 0.1 });
 
-    // --- Scroll-based events (nav highlight only; removed scroll glow math) ---
-    const handleScroll = () => {
-        const headerHeight = header ? header.offsetHeight : 0;
-        const headerOffset = headerHeight + 20;
-        let currentSectionId = 'profile';
-        for (const section of sections) {
-            const rect = section.getBoundingClientRect();
-            if (rect.top <= headerOffset && rect.bottom > headerOffset) {
-                currentSectionId = section.getAttribute('id');
-                break; 
-            }
-        }
-        navLinks.forEach(link => {
-            const isActive = link.getAttribute('href') === `#${currentSectionId}`;
-            link.classList.toggle('text-sky-600', isActive);
-            link.classList.toggle('font-bold', isActive);
+        document.querySelectorAll('section, aside').forEach(el => observer.observe(el));
+
+        // --- Smooth Anchor Scrolling ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (!href || href === '#') return;
+                const target = document.querySelector(href);
+                if (!target) return;
+                e.preventDefault();
+                
+                const headerHeight = header ? header.offsetHeight : 0;
+                const y = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 8;
+                window.scrollTo({ top: y, behavior: 'smooth' });
+            });
         });
-    };
-    
-    window.addEventListener('scroll', throttle(handleScroll, 100));
-    handleScroll();
-});
-</script>
 
-<script>
-/* --- Performance patch: passive + rAF for scrolling (no visual changes) --- */
-(function() {
-  var scheduled = false;
-  function rafTick() {
-    scheduled = false;
-    // No-op by default; ensures scroll work is aligned to the next paint.
-    // If a page defines window.handleScroll, we'll call it here *in addition*
-    // to any existing listeners to help smooth heavy work.
-    try {
-      if (typeof window.handleScroll === "function") {
-        window.handleScroll();
-      }
-    } catch (e) { /* ignore */ }
-  }
-  window.addEventListener('scroll', function() {
-    if (scheduled) return;
-    scheduled = true;
-    requestAnimationFrame(rafTick);
-  }, { passive: true });
-})();
-/* --- end patch --- */
+        // --- Sidebar Page Navigation ---
+        sidebarNavButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetPageId = button.dataset.page;
+                sidebarPages.forEach(page => page.classList.toggle('active', page.id === targetPageId));
+                sidebarNavButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.page === targetPageId));
+            });
+        });
 
+        // --- Spotlight Cursor Effect (kept; already lightweight with rAF) ---
+        mainContent.addEventListener('mousemove', e => {
+            if (!isTicking) {
+                window.requestAnimationFrame(() => {
+                    const { clientX, clientY } = e;
+                    const { left, top } = mainContent.getBoundingClientRect();
+                    mainContent.style.setProperty('--x', `${clientX - left}px`);
+                    mainContent.style.setProperty('--y', `${clientY - top}px`);
+                    isTicking = false;
+                });
+                isTicking = true;
+            }
+        });
+
+        // --- Scroll-based events (nav highlight only; removed scroll glow math) ---
+        const handleScroll = () => {
+            const headerHeight = header ? header.offsetHeight : 0;
+            const headerOffset = headerHeight + 20;
+            let currentSectionId = 'profile';
+            for (const section of sections) {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= headerOffset && rect.bottom > headerOffset) {
+                    currentSectionId = section.getAttribute('id');
+                    break; 
+                }
+            }
+            navLinks.forEach(link => {
+                const isActive = link.getAttribute('href') === `#${currentSectionId}`;
+                link.classList.toggle('text-sky-600', isActive);
+                link.classList.toggle('font-bold', isActive);
+            });
+        };
+        
+        window.addEventListener('scroll', throttle(handleScroll, 100));
+        handleScroll();
+    });
 </script>
 </body>
 </html>
