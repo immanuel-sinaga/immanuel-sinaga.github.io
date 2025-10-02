@@ -366,8 +366,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const headerHeight = header ? header.offsetHeight : 0;
             const y = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 8;
             window.scrollTo({ top: y, behavior: 'smooth' });
-
-            history.pushState(null, '', href);
         });
     });
 
