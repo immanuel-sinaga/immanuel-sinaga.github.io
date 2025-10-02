@@ -19,7 +19,7 @@
     <link href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='15' fill='%230ea5e9'%3E%3C/rect%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-size='50' font-family='sans-serif' fill='white' font-weight='bold'%3EYN%3C/text%3E%3C/svg%3E" rel="icon"/>
     <link href="https://fonts.googleapis.com" rel="preconnect"/>
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* --- Base & Fonts --- */
@@ -83,6 +83,8 @@
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            /* OPTIMIZATION: Hint to the browser to prepare this element for animation. */
+            will-change: opacity, transform;
         }
         .fade-in-section.is-visible {
             opacity: 1;
@@ -95,6 +97,8 @@
             background: #ffffff;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            /* OPTIMIZATION: Hint to the browser to prepare for hover animations, reducing lag. */
+            will-change: transform, box-shadow;
         }
         .project-card:hover {
             transform: translateY(-6px);
@@ -137,7 +141,19 @@
         @media (prefers-reduced-motion: reduce) {
             .animated-gradient { animation: none; }
         }
-    </style>
+    
+
+/* --- Performance patch: zero-visual-change helpers --- */
+section, article, main > *, .panel, .page, .content-block, .list, .card-list {
+  content-visibility: auto;
+  contain-intrinsic-size: 1000px;
+}
+main, aside {
+  contain: paint;
+}
+/* --- end patch --- */
+
+</style>
 </head>
 
 <body class="antialiased">
@@ -159,7 +175,7 @@
         <div class="sidebar-page active" id="page-about">
             <div>
                 <header class="pt-16 lg:pt-0">
-                    <img alt="Your Name" class="rounded-full shadow-lg mx-auto lg:mx-0 w-32 h-32 mb-6" src="https://placehold.co/128x128/e5e7eb/374151?text=YN" loading="lazy"/>
+                    <img alt="Your Name" class="rounded-full shadow-lg mx-auto lg:mx-0 w-32 h-32 mb-6" src="https://placehold.co/128x128/e5e7eb/374151?text=YN" loading="lazy" decoding="async"/>
                     <h1 class="text-4xl lg:text-5xl font-bold text-white">[Your Name]</h1>
                     <p class="animated-gradient text-xl md:text-2xl bg-gradient-to-r from-sky-500 via-teal-500 to-purple-500 bg-clip-text text-transparent mt-2 font-semibold">[Your Specialization or Role]</p>
                 </header>
@@ -254,7 +270,7 @@
                 <h2 class="text-3xl md:text-4xl font-bold mb-12 text-gray-900 fade-in-section">My Projects</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div class="project-card rounded-lg overflow-hidden fade-in-section">
-                        <img alt="Project One Placeholder" class="w-full h-48 object-cover" src="https://placehold.co/600x400/e5e7eb/38bdf8?text=Project+One" loading="lazy"/>
+                        <img alt="Project One Placeholder" class="w-full h-48 object-cover" src="https://placehold.co/600x400/e5e7eb/38bdf8?text=Project+One" loading="lazy" decoding="async"/>
                         <div class="p-6">
                             <h3 class="text-xl font-bold mb-2 text-gray-900">[Project Title 1]</h3>
                             <p class="text-gray-600 mb-4">Provide a concise description of your project here. What problem does it solve, what technologies were used, and what was your role in its development?</p>
@@ -263,7 +279,7 @@
                         </div>
                     </div>
                     <div class="project-card rounded-lg overflow-hidden fade-in-section">
-                        <img alt="Project Two Placeholder" class="w-full h-48 object-cover" src="https://placehold.co/600x400/e5e7eb/14b8a6?text=Project+Two" loading="lazy"/>
+                        <img alt="Project Two Placeholder" class="w-full h-48 object-cover" src="https://placehold.co/600x400/e5e7eb/14b8a6?text=Project+Two" loading="lazy" decoding="async"/>
                         <div class="p-6">
                             <h3 class="text-xl font-bold mb-2 text-gray-900">[Project Title 2]</h3>
                             <p class="text-gray-600 mb-4">Provide a concise description of your project here. What problem does it solve, what technologies were used, and what was your role in its development?</p>
@@ -272,7 +288,7 @@
                         </div>
                     </div>
                     <div class="project-card rounded-lg overflow-hidden fade-in-section">
-                        <img alt="Project Three Placeholder" class="w-full h-48 object-cover" src="https://placehold.co/600x400/e5e7eb/8b5cf6?text=Project+Three" loading="lazy"/>
+                        <img alt="Project Three Placeholder" class="w-full h-48 object-cover" src="https://placehold.co/600x400/e5e7eb/8b5cf6?text=Project+Three" loading="lazy" decoding="async"/>
                         <div class="p-6">
                             <h3 class="text-xl font-bold mb-2 text-gray-900">[Project Title 3]</h3>
                             <p class="text-gray-600 mb-4">Provide a concise description of your project here. What problem does it solve, what technologies were used, and what was your role in its development?</p>
@@ -281,7 +297,7 @@
                         </div>
                     </div>
                     <div class="project-card rounded-lg overflow-hidden fade-in-section">
-                        <img alt="Project Four Placeholder" class="w-full h-48 object-cover" src="https://placehold.co/600x400/e5e7eb/ef4444?text=Project+Four" loading="lazy"/>
+                        <img alt="Project Four Placeholder" class="w-full h-48 object-cover" src="https://placehold.co/600x400/e5e7eb/ef4444?text=Project+Four" loading="lazy" decoding="async"/>
                         <div class="p-6">
                             <h3 class="text-xl font-bold mb-2 text-gray-900">[Project Title 4]</h3>
                             <p class="text-gray-600 mb-4">Provide a concise description of your project here. What problem does it solve, what technologies were used, and what was your role in its development?</p>
@@ -402,5 +418,29 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
+<script>
+/* --- Performance patch: passive + rAF for scrolling (no visual changes) --- */
+(function() {
+  var scheduled = false;
+  function rafTick() {
+    scheduled = false;
+    // No-op by default; ensures scroll work is aligned to the next paint.
+    // If a page defines window.handleScroll, we'll call it here *in addition*
+    // to any existing listeners to help smooth heavy work.
+    try {
+      if (typeof window.handleScroll === "function") {
+        window.handleScroll();
+      }
+    } catch (e) { /* ignore */ }
+  }
+  window.addEventListener('scroll', function() {
+    if (scheduled) return;
+    scheduled = true;
+    requestAnimationFrame(rafTick);
+  }, { passive: true });
+})();
+/* --- end patch --- */
+
+</script>
 </body>
 </html>
