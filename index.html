@@ -295,18 +295,31 @@
 
   <!-- Mobile: ensure we land on #profile on refresh/back-forward -->
   <script>
-    (() => {
-      const isMobile = matchMedia('(max-width: 1023px)').matches;
-      if (!isMobile) return;
-      addEventListener('pageshow', () => {
-        if (location.hash !== '#profile') {
-          location.replace('#profile');
-        } else {
-          document.getElementById('profile')?.scrollIntoView({ block: 'start' });
-        }
-      });
-    })();
-  </script>
+(() => {
+  const isMobile = matchMedia('(max-width: 1023px)').matches;
+  if (!isMobile) return;
+
+  // Stop the browser from restoring the old scroll position on refresh
+  try { history.scrollRestoration = 'manual'; } catch {}
+
+  const goProfile = () => {
+    if (location.hash !== '#profile') {
+      location.replace('#profile');
+    }
+    // Defer to the next frame so layout is ready, then force the jump
+    requestAnimationFrame(() => {
+      const el = document.getElementById('profile');
+      if (el) el.scrollIntoView({ block: 'start', behavior: 'auto' });
+      // extra guard against smooth-scroll effects / odd engines
+      window.scrollTo(0, 0);
+    });
+  };
+
+  addEventListener('pageshow', goProfile, { once: true });
+  // Also cover hard reloads where 'pageshow' timing can be quirky
+  document.addEventListener('DOMContentLoaded', goProfile, { once: true });
+})();
+</script>
 
   <!-- Page script (simplified & optimized) -->
   <script>
