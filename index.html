@@ -121,7 +121,10 @@
         transition: opacity 0.5s ease-in-out;
         pointer-events: none; display: flex; flex-direction: column; justify-content: space-between;
         overflow-y: auto;
+        padding-bottom: 5rem; /* keep content clear of the bottom icon bar */
+        scrollbar-width: none; -ms-overflow-style: none; /* no visible scrollbar */
       }
+      .sidebar-page::-webkit-scrollbar { display: none; }
       .sidebar-page.active { opacity: 1; pointer-events: auto; }
     }
 
@@ -203,57 +206,57 @@
             <h2 class="text-4xl lg:text-5xl font-bold text-white">Technology</h2>
             <p class="text-xl text-slate-400 mt-2">My technical toolbox.</p>
           </header>
-          <div class="mt-8">
-            <h3 class="text-lg font-semibold mb-3 text-sky-400 uppercase tracking-widest">Languages</h3>
-            <div class="flex flex-wrap gap-3">
-              <span class="bg-sky-400/10 text-sky-300 ring-1 ring-inset ring-sky-400/20 px-3 py-1 rounded-full text-sm font-medium">Indonesian</span>
-              <span class="bg-sky-400/10 text-sky-300 ring-1 ring-inset ring-sky-400/20 px-3 py-1 rounded-full text-sm font-medium">English</span>
+          <div class="mt-5">
+            <h3 class="text-lg font-semibold mb-2 text-sky-400 uppercase tracking-widest">Languages</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-sky-400/10 text-sky-300 ring-1 ring-inset ring-sky-400/20 px-2.5 py-1 rounded-full text-xs font-medium">Indonesian</span>
+              <span class="bg-sky-400/10 text-sky-300 ring-1 ring-inset ring-sky-400/20 px-2.5 py-1 rounded-full text-xs font-medium">English</span>
             </div>
           </div>
-          <div class="mt-8">
-            <h3 class="text-lg font-semibold mb-3 text-teal-400 uppercase tracking-widest">Technologies Used</h3>
-            <div class="flex flex-wrap gap-3">
-              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">Python (YOLO, OpenCV, NumPy, Pandas, Matplotlib)</span>
-              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">C</span>
-              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">C++</span>
-              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">Go</span>
-              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">Java</span>
-              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">PHP</span>
-              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">Figma</span>
-              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">HTML</span>
-              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">CSS</span>
-              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">JavaScript</span>
-              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">SQL</span>
-              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">Linux</span>
-              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">Windows Server (Hyper-V, Failover Clustering)</span>
-              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">VMware ESXi</span>
-              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">SUSE Linux Enterprise Server</span>
-              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">SAN switch zoning</span>
-              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">NIC teaming</span>
-              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">Commvault</span>
-              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">Microsoft Office</span>
-              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">Cisco Packet Tracer</span>
-              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">UI/UX prototyping</span>
-              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">Research and collaboration</span>
+          <div class="mt-5">
+            <h3 class="text-lg font-semibold mb-2 text-teal-400 uppercase tracking-widest">Technologies Used</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-2.5 py-1 rounded-full text-xs font-medium">Python (YOLO, OpenCV, NumPy, Pandas, Matplotlib)</span>
+              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-2.5 py-1 rounded-full text-xs font-medium">C</span>
+              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-2.5 py-1 rounded-full text-xs font-medium">C++</span>
+              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-2.5 py-1 rounded-full text-xs font-medium">Go</span>
+              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-2.5 py-1 rounded-full text-xs font-medium">Java</span>
+              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-2.5 py-1 rounded-full text-xs font-medium">PHP</span>
+              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-2.5 py-1 rounded-full text-xs font-medium">Figma</span>
+              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-2.5 py-1 rounded-full text-xs font-medium">HTML</span>
+              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-2.5 py-1 rounded-full text-xs font-medium">CSS</span>
+              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-2.5 py-1 rounded-full text-xs font-medium">JavaScript</span>
+              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-2.5 py-1 rounded-full text-xs font-medium">SQL</span>
+              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-2.5 py-1 rounded-full text-xs font-medium">Linux</span>
+              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-2.5 py-1 rounded-full text-xs font-medium">Windows Server (Hyper-V, Failover Clustering)</span>
+              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-2.5 py-1 rounded-full text-xs font-medium">VMware ESXi</span>
+              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-2.5 py-1 rounded-full text-xs font-medium">SUSE Linux Enterprise Server</span>
+              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-2.5 py-1 rounded-full text-xs font-medium">SAN switch zoning</span>
+              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-2.5 py-1 rounded-full text-xs font-medium">NIC teaming</span>
+              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-2.5 py-1 rounded-full text-xs font-medium">Commvault</span>
+              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-2.5 py-1 rounded-full text-xs font-medium">Microsoft Office</span>
+              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-2.5 py-1 rounded-full text-xs font-medium">Cisco Packet Tracer</span>
+              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-2.5 py-1 rounded-full text-xs font-medium">UI/UX prototyping</span>
+              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-2.5 py-1 rounded-full text-xs font-medium">Research and collaboration</span>
             </div>
           </div>
-          <div class="mt-8">
-            <h3 class="text-lg font-semibold mb-3 text-amber-400 uppercase tracking-widest">Exposure</h3>
-            <div class="flex flex-wrap gap-3">
-              <span class="bg-amber-400/10 text-amber-300 ring-1 ring-inset ring-amber-400/20 px-3 py-1 rounded-full text-sm font-medium">Veeam</span>
-              <span class="bg-amber-400/10 text-amber-300 ring-1 ring-inset ring-amber-400/20 px-3 py-1 rounded-full text-sm font-medium">Cohesity</span>
-              <span class="bg-amber-400/10 text-amber-300 ring-1 ring-inset ring-amber-400/20 px-3 py-1 rounded-full text-sm font-medium">Hitachi HCP</span>
-              <span class="bg-amber-400/10 text-amber-300 ring-1 ring-inset ring-amber-400/20 px-3 py-1 rounded-full text-sm font-medium">SCVMM</span>
-              <span class="bg-amber-400/10 text-amber-300 ring-1 ring-inset ring-amber-400/20 px-3 py-1 rounded-full text-sm font-medium">Huawei FusionCube HCI</span>
+          <div class="mt-5">
+            <h3 class="text-lg font-semibold mb-2 text-amber-400 uppercase tracking-widest">Exposure</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-amber-400/10 text-amber-300 ring-1 ring-inset ring-amber-400/20 px-2.5 py-1 rounded-full text-xs font-medium">Veeam</span>
+              <span class="bg-amber-400/10 text-amber-300 ring-1 ring-inset ring-amber-400/20 px-2.5 py-1 rounded-full text-xs font-medium">Cohesity</span>
+              <span class="bg-amber-400/10 text-amber-300 ring-1 ring-inset ring-amber-400/20 px-2.5 py-1 rounded-full text-xs font-medium">Hitachi HCP</span>
+              <span class="bg-amber-400/10 text-amber-300 ring-1 ring-inset ring-amber-400/20 px-2.5 py-1 rounded-full text-xs font-medium">SCVMM</span>
+              <span class="bg-amber-400/10 text-amber-300 ring-1 ring-inset ring-amber-400/20 px-2.5 py-1 rounded-full text-xs font-medium">Huawei FusionCube HCI</span>
             </div>
           </div>
-          <div class="mt-8">
-            <h3 class="text-lg font-semibold mb-3 text-purple-400 uppercase tracking-widest">Experimental</h3>
-            <div class="flex flex-wrap gap-3">
-              <span class="bg-purple-400/10 text-purple-300 ring-1 ring-inset ring-purple-400/20 px-3 py-1 rounded-full text-sm font-medium">Docker</span>
-              <span class="bg-purple-400/10 text-purple-300 ring-1 ring-inset ring-purple-400/20 px-3 py-1 rounded-full text-sm font-medium">Kubernetes</span>
-              <span class="bg-purple-400/10 text-purple-300 ring-1 ring-inset ring-purple-400/20 px-3 py-1 rounded-full text-sm font-medium">Azure</span>
-              <span class="bg-purple-400/10 text-purple-300 ring-1 ring-inset ring-purple-400/20 px-3 py-1 rounded-full text-sm font-medium">Terraform</span>
+          <div class="mt-5">
+            <h3 class="text-lg font-semibold mb-2 text-purple-400 uppercase tracking-widest">Experimental</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-purple-400/10 text-purple-300 ring-1 ring-inset ring-purple-400/20 px-2.5 py-1 rounded-full text-xs font-medium">Docker</span>
+              <span class="bg-purple-400/10 text-purple-300 ring-1 ring-inset ring-purple-400/20 px-2.5 py-1 rounded-full text-xs font-medium">Kubernetes</span>
+              <span class="bg-purple-400/10 text-purple-300 ring-1 ring-inset ring-purple-400/20 px-2.5 py-1 rounded-full text-xs font-medium">Azure</span>
+              <span class="bg-purple-400/10 text-purple-300 ring-1 ring-inset ring-purple-400/20 px-2.5 py-1 rounded-full text-xs font-medium">Terraform</span>
             </div>
           </div>
         </div>
@@ -322,39 +325,53 @@
         <section class="scroll-mt-20 py-16 sm:py-20 lg:py-24 px-8 sm:px-12 bg-white" id="certifications">
           <h2 class="text-3xl md:text-4xl font-bold mb-12 text-gray-900 fade-in-section">Certifications &amp; Training</h2>
           <h3 class="text-lg font-semibold mb-6 text-sky-600 uppercase tracking-widest fade-in-section">Certifications</h3>
-          <div class="fade-in-section">
-            <div class="timeline-item">
-              <p class="text-sm font-medium text-sky-600">Valid through Oct 2029</p>
-              <h3 class="text-xl font-bold text-gray-900 mt-1">Huawei Certified ICT Associate (HCIA) Storage</h3>
-              <p class="text-gray-500 font-medium">Huawei</p>
-              <p class="text-gray-600 mt-2">Instructor-led online training, followed by an onsite proctored exam.</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="project-card rounded-lg overflow-hidden fade-in-section">
+              <div class="p-6">
+                <p class="text-sm font-medium text-sky-600">Valid through Oct 2029</p>
+                <h3 class="text-xl font-bold text-gray-900 mt-1">Huawei Certified ICT Associate (HCIA) Storage</h3>
+                <p class="text-gray-500 font-medium">Huawei</p>
+                <p class="text-gray-600 mt-3">Instructor-led online training, followed by an onsite proctored exam.</p>
+                <div class="flex space-x-4 mt-4"><a class="text-sky-600 hover:text-sky-500 transition duration-300 font-medium" href="/public/files/Certificate_Huawei_HCIA_Storage.pdf" rel="noopener noreferrer" target="_blank">View certificate</a></div>
+              </div>
             </div>
-            <div class="timeline-item">
-              <p class="text-sm font-medium text-sky-600">Sep 2026</p>
-              <h3 class="text-xl font-bold text-gray-900 mt-1">Brocade SAN Administrator (Fabric OS v10.0)</h3>
-              <p class="text-gray-500 font-medium">Broadcom</p>
-              <p class="text-gray-600 mt-2">Self-paced LMS course, followed by an online exam.</p>
+            <div class="project-card rounded-lg overflow-hidden fade-in-section">
+              <div class="p-6">
+                <p class="text-sm font-medium text-sky-600">Sep 2026</p>
+                <h3 class="text-xl font-bold text-gray-900 mt-1">Brocade SAN Administrator (Fabric OS v10.0)</h3>
+                <p class="text-gray-500 font-medium">Broadcom</p>
+                <p class="text-gray-600 mt-3">Self-paced LMS course, followed by an online exam.</p>
+                <div class="flex space-x-4 mt-4"><a class="text-sky-600 hover:text-sky-500 transition duration-300 font-medium" href="/public/files/Certificate_Brocade_SAN_Administrator.pdf" rel="noopener noreferrer" target="_blank">View certificate</a></div>
+              </div>
             </div>
-            <div class="timeline-item">
-              <p class="text-sm font-medium text-sky-600">Jan 2026</p>
-              <h3 class="text-xl font-bold text-gray-900 mt-1">IBM Cloud Essentials</h3>
-              <p class="text-gray-500 font-medium">IBM SkillsBuild</p>
-              <p class="text-gray-600 mt-2">Self-paced LMS course, followed by an online exam.</p>
+            <div class="project-card rounded-lg overflow-hidden fade-in-section">
+              <div class="p-6">
+                <p class="text-sm font-medium text-sky-600">Jan 2026</p>
+                <h3 class="text-xl font-bold text-gray-900 mt-1">IBM Cloud Essentials</h3>
+                <p class="text-gray-500 font-medium">IBM SkillsBuild</p>
+                <p class="text-gray-600 mt-3">Self-paced LMS course, followed by an online exam.</p>
+                <div class="flex space-x-4 mt-4"><a class="text-sky-600 hover:text-sky-500 transition duration-300 font-medium" href="/public/files/Certificate_IBM_CC0103EN.pdf" rel="noopener noreferrer" target="_blank">View certificate</a></div>
+              </div>
             </div>
-            <div class="timeline-item">
-              <p class="text-sm font-medium text-sky-600">2024</p>
-              <h3 class="text-xl font-bold text-gray-900 mt-1">Advanced English</h3>
-              <p class="text-gray-500 font-medium">BINUS University</p>
-              <p class="text-gray-600 mt-2">Self-paced LMS course with module deadlines, followed by an online exam.</p>
+            <div class="project-card rounded-lg overflow-hidden fade-in-section">
+              <div class="p-6">
+                <p class="text-sm font-medium text-sky-600">2024</p>
+                <h3 class="text-xl font-bold text-gray-900 mt-1">Advanced English</h3>
+                <p class="text-gray-500 font-medium">BINUS University</p>
+                <p class="text-gray-600 mt-3">Self-paced LMS course with module deadlines, followed by an online exam.</p>
+              </div>
             </div>
           </div>
           <h3 class="text-lg font-semibold mt-12 mb-6 text-sky-600 uppercase tracking-widest fade-in-section">Training Programs</h3>
-          <div class="fade-in-section">
-            <div class="timeline-item">
-              <p class="text-sm font-medium text-sky-600">15 Oct 2026</p>
-              <h3 class="text-xl font-bold text-gray-900 mt-1">Dell University Program Vol. 3: Unstructured Data Storage</h3>
-              <p class="text-gray-500 font-medium">Virtus Technology Indonesia x Dell Technologies</p>
-              <p class="text-gray-600 mt-2">Onsite program, completed with a certificate of attendance.</p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="project-card rounded-lg overflow-hidden fade-in-section">
+              <div class="p-6">
+                <p class="text-sm font-medium text-sky-600">15 Oct 2026</p>
+                <h3 class="text-xl font-bold text-gray-900 mt-1">Dell University Program Vol. 3: Unstructured Data Storage</h3>
+                <p class="text-gray-500 font-medium">Virtus Technology Indonesia x Dell Technologies</p>
+                <p class="text-gray-600 mt-3">Onsite program, completed with a certificate of attendance.</p>
+                <div class="flex space-x-4 mt-4"><a class="text-sky-600 hover:text-sky-500 transition duration-300 font-medium" href="/public/files/Certificate_Attendance_Dell_University_Program_Unstructured_Data_Storage.pdf" rel="noopener noreferrer" target="_blank">View certificate</a></div>
+              </div>
             </div>
           </div>
         </section>
