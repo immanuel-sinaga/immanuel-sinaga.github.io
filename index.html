@@ -158,9 +158,11 @@
   <header class="glass-nav fixed top-0 left-0 right-0 z-50 transition-all duration-300 lg:hidden" id="header">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
       <a class="text-2xl font-bold text-gray-900 tracking-wider" href="#profile">IS.</a>
-      <nav class="flex items-center space-x-6">
+      <nav class="flex items-center space-x-3 sm:space-x-6 text-sm sm:text-base">
         <a class="nav-link transition-colors hover:text-sky-600" href="#profile">About</a>
+        <a class="nav-link transition-colors hover:text-sky-600" href="#experience">Experience</a>
         <a class="nav-link transition-colors hover:text-sky-600" href="#education">Education</a>
+        <a class="nav-link transition-colors hover:text-sky-600" href="#certifications">Certs</a>
         <a class="nav-link transition-colors hover:text-sky-600" href="#projects">Projects</a>
       </nav>
     </div>
@@ -223,9 +225,26 @@
               <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">JavaScript</span>
               <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">SQL</span>
               <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">Linux</span>
+              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">Windows Server (Hyper-V, Failover Clustering)</span>
+              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">VMware ESXi</span>
+              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">SUSE Linux Enterprise Server</span>
+              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">SAN switch zoning</span>
+              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">NIC teaming</span>
+              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">Commvault</span>
               <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">Microsoft Office</span>
+              <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">Cisco Packet Tracer</span>
               <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">UI/UX prototyping</span>
               <span class="bg-teal-400/10 text-teal-300 ring-1 ring-inset ring-teal-400/20 px-3 py-1 rounded-full text-sm font-medium">Research and collaboration</span>
+            </div>
+          </div>
+          <div class="mt-8">
+            <h3 class="text-lg font-semibold mb-3 text-amber-400 uppercase tracking-widest">Exposure</h3>
+            <div class="flex flex-wrap gap-3">
+              <span class="bg-amber-400/10 text-amber-300 ring-1 ring-inset ring-amber-400/20 px-3 py-1 rounded-full text-sm font-medium">Veeam</span>
+              <span class="bg-amber-400/10 text-amber-300 ring-1 ring-inset ring-amber-400/20 px-3 py-1 rounded-full text-sm font-medium">Cohesity</span>
+              <span class="bg-amber-400/10 text-amber-300 ring-1 ring-inset ring-amber-400/20 px-3 py-1 rounded-full text-sm font-medium">Hitachi HCP</span>
+              <span class="bg-amber-400/10 text-amber-300 ring-1 ring-inset ring-amber-400/20 px-3 py-1 rounded-full text-sm font-medium">SCVMM</span>
+              <span class="bg-amber-400/10 text-amber-300 ring-1 ring-inset ring-amber-400/20 px-3 py-1 rounded-full text-sm font-medium">Huawei FusionCube HCI</span>
             </div>
           </div>
           <div class="mt-8">
@@ -255,20 +274,87 @@
     <main class="lg:w-2/3 relative overflow-hidden">
       <div class="absolute inset-0 -z-10 overflow-hidden"></div>
       <div class="relative z-10">
-        <section class="scroll-mt-20 py-16 sm:py-20 lg:py-24 px-8 sm:px-12 bg-white" id="education">
+        <section class="scroll-mt-20 py-16 sm:py-20 lg:py-24 px-8 sm:px-12 bg-white" id="experience">
+          <h2 class="text-3xl md:text-4xl font-bold mb-12 text-gray-900 fade-in-section">Experience</h2>
+          <div class="fade-in-section">
+            <div class="timeline-item">
+              <p class="text-sm font-medium text-sky-600">2 Feb 2026 - 31 Jan 2027 (ongoing)</p>
+              <h3 class="text-xl font-bold text-gray-900 mt-1">System Engineer Intern, Infrastructure Department</h3>
+              <p class="text-gray-500 font-medium">PT Astra Graphia Information Technology (AGIT)</p>
+              <p class="text-gray-600 mt-2">AGIT is a Jakarta-based IT system integrator and digital service provider, a subsidiary of PT Astra Graphia Tbk (Astra Group). I support enterprise client projects in servers, storage, SAN, backup, and virtualization, from onsite installation to UAT/QAT, documentation, and troubleshooting.</p>
+              <ul class="list-disc pl-5 mt-3 space-y-2 text-gray-600">
+                <li>Installed and configured infrastructure onsite: rack mounting, fiber-optic cabling, and labeling of servers, storage, and SAN switches; configured SAN switch zoning, NIC teaming, IP/hostname settings, and Windows licensing.</li>
+                <li>Created and configured VMs for a disaster recovery site, restored production VMs through Commvault, set up Cluster Shared Volumes, and joined VM migrations, including VMware to Huawei FusionCube HCI.</li>
+                <li>Joined UAT and QAT sessions for Hitachi HCP, Huawei HCI, Cohesity/Veeam backup, and VDI projects, and wrote UAT and Final Build documents, working instructions, and OS upgrade checklists.</li>
+                <li>Took part in SUSE Linux OS upgrades on SAP application servers and configured iLO SMTP alerts and daily log crontab scripts for an SAP sandbox.</li>
+                <li>Joined troubleshooting of Huawei HCI health-score and SCVMM login issues; self-studied Hyper-V and Failover Clustering, VMware ESXi, backup concepts, HCI (Huawei, Sangfor), SAP HANA, and SUSE Linux through labs.</li>
+              </ul>
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-xs font-medium">Windows Server</span>
+                <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-xs font-medium">Hyper-V</span>
+                <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-xs font-medium">VMware ESXi</span>
+                <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-xs font-medium">SAN</span>
+                <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-xs font-medium">SUSE Linux</span>
+                <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-xs font-medium">Commvault</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="scroll-mt-20 py-16 sm:py-20 lg:py-24 px-8 sm:px-12 bg-gray-50" id="education">
           <h2 class="text-3xl md:text-4xl font-bold mb-12 text-gray-900 fade-in-section">Education</h2>
           <div class="fade-in-section">
             <div class="timeline-item">
               <p class="text-sm font-medium text-sky-600">2023 - 2027 (Expected)</p>
               <h3 class="text-xl font-bold text-gray-900 mt-1">Computer Science Major (Network Technology)</h3>
               <p class="text-gray-500 font-medium">Binus University</p>
-              <p class="text-gray-600 mt-2">3.64 GPA (4th Semester).</p>
+              <p class="text-gray-600 mt-2">3.74 GPA (6th Semester).</p>
             </div>
             <div class="timeline-item">
               <p class="text-sm font-medium text-sky-600">2020 - 2023</p>
               <h3 class="text-xl font-bold text-gray-900 mt-1">Science Major</h3>
               <p class="text-gray-500 font-medium">SMA BPK Penabur Bogor</p>
               <p class="text-gray-600 mt-2">TIK Extracurricular Program.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="scroll-mt-20 py-16 sm:py-20 lg:py-24 px-8 sm:px-12 bg-white" id="certifications">
+          <h2 class="text-3xl md:text-4xl font-bold mb-12 text-gray-900 fade-in-section">Certifications &amp; Training</h2>
+          <h3 class="text-lg font-semibold mb-6 text-sky-600 uppercase tracking-widest fade-in-section">Certifications</h3>
+          <div class="fade-in-section">
+            <div class="timeline-item">
+              <p class="text-sm font-medium text-sky-600">Valid through Oct 2029</p>
+              <h3 class="text-xl font-bold text-gray-900 mt-1">Huawei Certified ICT Associate (HCIA) Storage</h3>
+              <p class="text-gray-500 font-medium">Huawei</p>
+              <p class="text-gray-600 mt-2">Instructor-led online training, followed by an onsite proctored exam.</p>
+            </div>
+            <div class="timeline-item">
+              <p class="text-sm font-medium text-sky-600">Sep 2026</p>
+              <h3 class="text-xl font-bold text-gray-900 mt-1">Brocade SAN Administrator (Fabric OS v10.0)</h3>
+              <p class="text-gray-500 font-medium">Broadcom</p>
+              <p class="text-gray-600 mt-2">Self-paced LMS course, followed by an online exam.</p>
+            </div>
+            <div class="timeline-item">
+              <p class="text-sm font-medium text-sky-600">Jan 2026</p>
+              <h3 class="text-xl font-bold text-gray-900 mt-1">IBM Cloud Essentials</h3>
+              <p class="text-gray-500 font-medium">IBM SkillsBuild</p>
+              <p class="text-gray-600 mt-2">Self-paced LMS course, followed by an online exam.</p>
+            </div>
+            <div class="timeline-item">
+              <p class="text-sm font-medium text-sky-600">2024</p>
+              <h3 class="text-xl font-bold text-gray-900 mt-1">Advanced English</h3>
+              <p class="text-gray-500 font-medium">BINUS University</p>
+              <p class="text-gray-600 mt-2">Self-paced LMS course with module deadlines, followed by an online exam.</p>
+            </div>
+          </div>
+          <h3 class="text-lg font-semibold mt-12 mb-6 text-sky-600 uppercase tracking-widest fade-in-section">Training Programs</h3>
+          <div class="fade-in-section">
+            <div class="timeline-item">
+              <p class="text-sm font-medium text-sky-600">15 Oct 2026</p>
+              <h3 class="text-xl font-bold text-gray-900 mt-1">Dell University Program Vol. 3: Unstructured Data Storage</h3>
+              <p class="text-gray-500 font-medium">Virtus Technology Indonesia x Dell Technologies</p>
+              <p class="text-gray-600 mt-2">Onsite program, completed with a certificate of attendance.</p>
             </div>
           </div>
         </section>
